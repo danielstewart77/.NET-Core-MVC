@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quintrix Web App Core MVC", "Quintrix Web App Core MVC.csproj", "{B05EFFF2-089F-453B-A98C-29AA145C0346}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B05EFFF2-089F-453B-A98C-29AA145C0346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B05EFFF2-089F-453B-A98C-29AA145C0346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B05EFFF2-089F-453B-A98C-29AA145C0346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B05EFFF2-089F-453B-A98C-29AA145C0346}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0112B694-75A4-463C-9B15-853FC57C6A68}
+	EndGlobalSection
+EndGlobal
