@@ -10,88 +10,87 @@ using Quintrix_Web_App_Core_MVC.Models;
 
 namespace Quintrix_Web_App_Core_MVC.Controllers
 {
-    public class PlayersController : Controller
+    public class BotsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public PlayersController(ApplicationDbContext context)
+        public BotsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Players
+        // GET: Bots
         public async Task<IActionResult> Index()
         {
-              return _context.Players != null ? 
-                          View(await _context.Players.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Players'  is null.");
+              return _context.Bots != null ? 
+                          View(await _context.Bots.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.Bots'  is null.");
         }
 
-        // GET: Players/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        // GET: Bots/Details/5
+        public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Players == null)
+            if (id == null || _context.Bots == null)
             {
                 return NotFound();
             }
 
-            var player = await _context.Players
+            var bots = await _context.Bots
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (player == null)
+            if (bots == null)
             {
                 return NotFound();
             }
 
-            return View(player);
+            return View(bots);
         }
 
-        // GET: Players/Create
+        // GET: Bots/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Players/Create
+        // POST: Bots/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Power,Level")] Player player)
+        public async Task<IActionResult> Create([Bind("Id,Name,BotId")] Bots bots)
         {
             if (ModelState.IsValid)
             {
-                player.Id = Guid.NewGuid();
-                _context.Add(player);
+                _context.Add(bots);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(player);
+            return View(bots);
         }
 
-        // GET: Players/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        // GET: Bots/Edit/5
+        public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Players == null)
+            if (id == null || _context.Bots == null)
             {
                 return NotFound();
             }
 
-            var player = await _context.Players.FindAsync(id);
-            if (player == null)
+            var bots = await _context.Bots.FindAsync(id);
+            if (bots == null)
             {
                 return NotFound();
             }
-            return View(player);
+            return View(bots);
         }
 
-        // POST: Players/Edit/5
+        // POST: Bots/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Power,Level")] Player player)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,BotId")] Bots bots)
         {
-            if (id != player.Id)
+            if (id != bots.Id)
             {
                 return NotFound();
             }
@@ -100,12 +99,12 @@ namespace Quintrix_Web_App_Core_MVC.Controllers
             {
                 try
                 {
-                    _context.Update(player);
+                    _context.Update(bots);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PlayerExists(player.Id))
+                    if (!BotsExists(bots.Id))
                     {
                         return NotFound();
                     }
@@ -116,49 +115,49 @@ namespace Quintrix_Web_App_Core_MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(player);
+            return View(bots);
         }
 
-        // GET: Players/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        // GET: Bots/Delete/5
+        public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Players == null)
+            if (id == null || _context.Bots == null)
             {
                 return NotFound();
             }
 
-            var player = await _context.Players
+            var bots = await _context.Bots
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (player == null)
+            if (bots == null)
             {
                 return NotFound();
             }
 
-            return View(player);
+            return View(bots);
         }
 
-        // POST: Players/Delete/5
+        // POST: Bots/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Players == null)
+            if (_context.Bots == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Players'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Bots'  is null.");
             }
-            var player = await _context.Players.FindAsync(id);
-            if (player != null)
+            var bots = await _context.Bots.FindAsync(id);
+            if (bots != null)
             {
-                _context.Players.Remove(player);
+                _context.Bots.Remove(bots);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PlayerExists(Guid id)
+        private bool BotsExists(int id)
         {
-          return (_context.Players?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Bots?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

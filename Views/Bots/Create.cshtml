@@ -1,4 +1,4 @@
-﻿@model Quintrix_Web_App_Core_MVC.Models.Player
+﻿@model Quintrix_Web_App_Core_MVC.Models.Bots
 
 @{
     ViewData["Title"] = "Create";
@@ -6,7 +6,7 @@
 
 <h1>Create</h1>
 
-<h4>Player</h4>
+<h4>Bots</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -18,14 +18,9 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Power" class="control-label"></label>
-                <input asp-for="Power" class="form-control" />
-                <span asp-validation-for="Power" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Level" class="control-label"></label>
-                <input asp-for="Level" class="form-control" />
-                <span asp-validation-for="Level" class="text-danger"></span>
+                <label asp-for="BotId" class="control-label"></label>
+                <input asp-for="BotId" class="form-control" />
+                <span asp-validation-for="BotId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

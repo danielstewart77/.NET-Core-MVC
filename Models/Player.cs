@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,11 +11,8 @@ namespace Quintrix_Web_App_Core_MVC.Models
 	/// <summary>
 	/// Base player model used for players & bots
 	/// </summary>
-	public class Player
+	public class Player : IdentityUser
 	{
-		[Key]
-		public Guid Id { get; set; }
-
 		/// <summary>
 		/// players can have empty names, bots should not
 		/// </summary>
@@ -26,5 +24,9 @@ namespace Quintrix_Web_App_Core_MVC.Models
 		public virtual int Power { get; set; } = 1;
 
 		public virtual int Level { get; set; } = 1;
+
+		public string personality { get; set; } = "";
+
+		//public string Email { get; set; } = "";
 	}
 }
