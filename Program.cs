@@ -21,12 +21,12 @@ builder.Services.AddIdentity<Player, IdentityRole>(options => options.SignIn.Req
 	.AddDefaultUI()
 	.AddDefaultTokenProviders();
 builder.Services.AddMemoryCache();
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+/*builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
 	.AddCookie(options =>
 	{
 		options.LoginPath = "/Account/Login";
-		options.LogoutPath = "/Account/Logout";
-	});
+		options.LogoutPath = "/Account/Login";
+	});*/
 
 builder.Services.AddRazorPages();
 
