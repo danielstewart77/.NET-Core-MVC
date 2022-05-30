@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Quintrix_Web_App_Core_MVC.Models;
 using System.Diagnostics;
 
 namespace Quintrix_Web_App_Core_MVC.Controllers
 {
+	[AllowAnonymous]
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;

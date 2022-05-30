@@ -28,5 +28,7 @@ namespace Quintrix_Web_App_Core_MVC.Models
 		public string personality { get; set; } = "";
 
 		//public string Email { get; set; } = "";
+
+		public bool IsAdmin { get; set; } = false;
 	}
 }

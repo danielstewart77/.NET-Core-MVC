@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Quintrix_Web_App_Core_MVC.Data;
 using Quintrix_Web_App_Core_MVC.Models;
@@ -20,17 +22,19 @@ builder.Services.AddIdentity<Player, IdentityRole>(options => options.SignIn.Req
 	.AddEntityFrameworkStores<ApplicationDbContext>()
 	.AddDefaultUI() // reuired for scaffoleded registration page
 	.AddDefaultTokenProviders(); // reuired for scaffoleded registration page
-builder.Services.AddMemoryCache();
-/*builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-	.AddCookie(options =>
-	{
-		options.LoginPath = "/Account/Login";
-		options.LogoutPath = "/Account/Login";
-	});*/
+
+/*builder.Services.AddAuthorization(options =>
+{
+	options.FallbackPolicy = new AuthorizationPolicyBuilder()
+		.RequireAuthenticatedUser()
+		.Build();
+});*/
+
 
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
